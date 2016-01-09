@@ -18,6 +18,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var addLbl: UILabel!
     
-
+    
+    // Properties
+    var maxMultiples = 10
+    var sum = 0
+    var multiple = 0
+    
+    @IBAction func onPlayButtonTap (sender: AnyObject){
+        
+        if multiplesTxtField.text != nil && multiplesTxtField.text != "" {
+        
+          multiplesImage.hidden = true
+          multiplesTxtField.hidden = true
+          playBtn.hidden = true
+          addLbl.hidden = false
+          addBtn.hidden = false
+          resetAddLblText()
+          multiple = Int(multiplesTxtField.text!)!
+          sum = 0
+        
+        }
+        
+    }
+    
+    @IBAction func onAddButtonTap (sender: AnyObject) {
+        
+    
+    }
+    
+    func resetAddLblText(){
+        addLbl.text = "Press ADD to add!"
+    }
+    
 }
-
