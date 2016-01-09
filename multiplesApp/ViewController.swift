@@ -20,9 +20,10 @@ class ViewController: UIViewController {
     
     
     // Properties
-    var maxMultiples = 50
+    var maxMultiples = 10
     var sum = 0
     var multiple = 0
+    var numAddBtnClicks = 0
     
     @IBAction func onPlayButtonTap (sender: AnyObject){
         
@@ -42,6 +43,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onAddButtonTap (sender: AnyObject) {
+        
+        numAddBtnClicks += 1
        
         let newSum = sum + multiple
         updateLbl(sum, mul: multiple, newSum: newSum)
@@ -55,6 +58,7 @@ class ViewController: UIViewController {
     
     func restartGame(){
       multiple = 0
+      numAddBtnClicks = 0
       multiplesTxtField.text = ""
       multiplesImage.hidden = false
       multiplesTxtField.hidden = false
@@ -65,7 +69,7 @@ class ViewController: UIViewController {
     }
     
     func isGameOver() -> Bool {
-        if sum >= maxMultiples {
+        if numAddBtnClicks >= maxMultiples {
             return true
         } else {
             return false
